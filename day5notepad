@@ -1,0 +1,40 @@
+TASK 1: SINAMPAL NG KATOTOHANAN
+invest: examCCNA + training
+
+
+802.1Q trunking
+802.1d STP
+802.1w RapidSTP
+802.1s MultipleSTP (MSTP)
+
+Laki sweldo trabaho
+c1:c2
+config t
+Int Range E0/1-3,E1/1-2,E2/1-2
+ shutdown
+ switchport trunk Encap Dot1Q
+ switchport mode trunk
+ switchport trunk allowed vlan 1-100
+ switchport trunk native vlan 1
+ no shut
+ do sh int trunk
+
+
+
+config t
+hostname coretaasPLDT
+Track 1 Int gi 0/1 line-protocol
+Int vlan 1
+standby 1 ip 10.41.1.6
+standby 1 preempt
+standby 1 Priority 150
+standby 1 Track 1 decrement 60
+
+
+config t
+hostname corebabaGLOBE
+Int vlan 1
+standby 1 ip 10.41.1.6
+standby 1 preempt
+standby 1 Priority 100
+end
